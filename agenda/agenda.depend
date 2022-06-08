@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1654624492 source:c:\users\lucas\onedrive\escritorio\proyectos c\agenda\main.c
+	<stdio.h>
+	<locale.h>
+	"funciones.c"
+	"prototipos.h"
+
+1654180560 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\funciones.h
+
+1654624981 source:c:\users\lucas\onedrive\escritorio\proyectos c\agenda\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructuras.h"
+
+1654624981 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\prototipos.h
+
+1654624981 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructuras.h"
+
+1654624981 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\estructuras.h
+
