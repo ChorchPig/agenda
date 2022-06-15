@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <locale.h>
-#include "funciones.c"
-#include "estructuras.h"
+#include "prototipos.h"
 
 int main(){
     setlocale(LC_ALL, "spanish");
@@ -15,25 +16,24 @@ int main(){
     printf("Longitud máxima de un string: ");
     scanf("%u", &tope);
     char *buffer=malloc(tope*sizeof(char)); //Variable para medir la longitud de strings
+    int (*ptr_az)(const void *, const void *)=ordenarAZ;
+    int (*ptr_za)(const void *, const void *)=ordenarZA;
     for(int i=0; i<cantContactos; i++){//Ingreso de datos
         printf("Ingrese el nombre del %u° contacto (máximo de %u letras): ", i+1, tope);
         scanf(" %s", buffer);
         longitud=calcularLongitudString(buffer);
         agenda[i].nombre=(char *)malloc(longitud*sizeof(char));
         memcpy(agenda[i].nombre, buffer, longitud);
-        limpiarBuffer(buffer, tope);
         printf("\nIngrese el apellido del %u° contacto (máximo de %u letras): ", i+1, tope);
         scanf(" %s", buffer);
         longitud=calcularLongitudString(buffer);
         agenda[i].apellido=(char *)malloc(longitud*sizeof(char));
         memcpy(agenda[i].apellido, buffer, longitud);
-        limpiarBuffer(buffer, tope);
         printf("\nIngrese el correo del %u° contacto (máximo de %u letras): ", i+1, tope);
         scanf(" %s", buffer);
         longitud=calcularLongitudString(buffer);
         agenda[i].correo=(char *)malloc(longitud*sizeof(char));
         memcpy(agenda[i].correo, buffer, longitud);
-        limpiarBuffer(buffer, tope);
 
         printf("\nNúmero de la zona del teléfono: ");
         scanf("%u", &agenda[i].tel.zona);
@@ -52,11 +52,17 @@ int main(){
             case 0: confirmarSalida(&option); break;
             case 1: {
                 printf("¿Qué contacto vas a cambiar?\n");
-                scanf("%u", &persona); //No verifica que la posición persona exista
+                scanf("%u", &persona);
+                if(persona<0 || persona>cantContactos-1){ //Verifica que agenda[persona] exista
+                    while(persona<0 || persona>cantContactos-1){
+                        printf("Contacto inexistente, vuela a intentarlo.\n");
+                        scanf("%u", &persona);
+                    }
+                }
                 modificarDatos(&agenda[persona], longitud, tope, buffer);
                 } break;
-            case 2: printf("Ud. se encuentra en la función 'Orden alfabético (a-z)'.\n"); break;
-            case 3: printf("Ud. se encuentra en la función 'Orden alfabético (z-a)'.\n"); break;
+            case 2: qsort(agenda, cantContactos, sizeof(contacto), ptr_az); break;
+            case 3: qsort(agenda, cantContactos, sizeof(contacto), ptr_za);; break;
             case 4: printf("Ud. se encuentra en la función 'Llamar a contacto'.\n"); break;
             case 5: mostrarAgenda(agenda, cantContactos); break;
             default : printf("No se seleccionó una opción existente");

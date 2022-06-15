@@ -1,13 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "estructuras.h"
-
-void limpiarBuffer(char buffer[], int longitud){
-    for(int i=0; i<longitud; i++){
-        buffer[i]=' ';
-    }
-}
+#include "prototipos.h"
 
 int calcularLongitudString(char buffer[]){
     int i=0, longitud=1;
@@ -43,14 +37,12 @@ void modificarDatos(contacto *agenda, unsigned int longitud, unsigned int tope, 
             free(agenda->nombre);
             agenda->nombre=(char *)malloc(longitud*sizeof(char));
             memcpy(agenda->nombre, buffer, longitud);
-            limpiarBuffer(buffer, tope);
             printf("Ingrese el nuevo apellido del contacto (máximo de %u letras): ", tope);
             scanf(" %s", buffer);
             longitud=calcularLongitudString(buffer);
             free(agenda->apellido);
             agenda->apellido=(char *)malloc(longitud*sizeof(char));
             memcpy(agenda->apellido, buffer, longitud);
-            limpiarBuffer(buffer, tope);
         }break;
         case 2 : {
             printf("Ingrese el nuevo correo del contacto (máximo de %u letras): ", tope);
@@ -59,7 +51,6 @@ void modificarDatos(contacto *agenda, unsigned int longitud, unsigned int tope, 
             free(agenda->correo);
             agenda->correo=(char *)malloc(longitud*sizeof(char));
             memcpy(agenda->correo, buffer, longitud);
-            limpiarBuffer(buffer, tope);
         }break;
         case 3 : {
             printf("\nNúmero de la zona del teléfono: ");
@@ -71,4 +62,24 @@ void modificarDatos(contacto *agenda, unsigned int longitud, unsigned int tope, 
         } break;
         default : printf("No se seleccionó una opción existente");
     }
+}
+
+int ordenarAZ(const void *str1, const void *str2){
+    int comparacion;
+    contacto *p1=(contacto *)str1;
+    contacto *p2=(contacto *)str2;
+    char *nombre1=(char *)p1->nombre;
+    char *nombre2=(char *)p2->nombre;
+    comparacion=strcmp(nombre1, nombre2);
+    return comparacion;
+}
+
+int ordenarZA(const void *str1, const void *str2){
+    int comparacion;
+    contacto *p1=(contacto *)str1;
+    contacto *p2=(contacto *)str2;
+    char *nombre1=(char *)p1->nombre;
+    char *nombre2=(char *)p2->nombre;
+    comparacion=strcmp(nombre2, nombre1);
+    return comparacion;
 }
