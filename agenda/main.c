@@ -16,8 +16,6 @@ int main(){
     printf("Longitud máxima de un string: ");
     scanf("%u", &tope);
     char *buffer=malloc(tope*sizeof(char)); //Variable para medir la longitud de strings
-    int (*ptr_az)(const void *, const void *)=ordenarAZ;
-    int (*ptr_za)(const void *, const void *)=ordenarZA;
     for(int i=0; i<cantContactos; i++){//Ingreso de datos
         printf("Ingrese el nombre del %u° contacto (máximo de %u letras): ", i+1, tope);
         scanf(" %s", buffer);
@@ -45,8 +43,8 @@ int main(){
 
     while(option!=0){ //Inicio de menú
         printf("\nSeleccione una opción: \n");
-        printf("1. Modificar datos 2. Orden alfabético (a-z) 3. Orden alfabético (z-a)");
-        printf("4. Llamar a contacto 5. Mostrar agenda 0. Salir del programa \n");
+        printf("1. Modificar datos 2. Ordenar agenda ");
+        printf("3. Llamar a contacto 4. Mostrar agenda 0. Salir del programa \n");
         scanf("%i", &option);
         switch(option){
             case 0: confirmarSalida(&option); break;
@@ -61,10 +59,9 @@ int main(){
                 }
                 modificarDatos(&agenda[persona], longitud, tope, buffer);
                 } break;
-            case 2: qsort(agenda, cantContactos, sizeof(contacto), ptr_az); break;
-            case 3: qsort(agenda, cantContactos, sizeof(contacto), ptr_za);; break;
-            case 4: printf("Ud. se encuentra en la función 'Llamar a contacto'.\n"); break;
-            case 5: mostrarAgenda(agenda, cantContactos); break;
+            case 2: qsort(agenda, cantContactos, sizeof(contacto), ordenar); break;
+            case 3: printf("Ud. se encuentra en la función 'Llamar a contacto'.\n"); break;
+            case 4: mostrarAgenda(agenda, cantContactos); break;
             default : printf("No se seleccionó una opción existente");
         }
     }

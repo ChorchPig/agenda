@@ -14,6 +14,5 @@ int calcularLongitudString(char[]);
 void confirmarSalida (int *);
 void mostrarAgenda(contacto *, unsigned int);
 void modificarDatos(contacto *, unsigned int, unsigned int, char*);
-int ordenarAZ(const void *, const void *);
-int ordenarZA(const void *, const void *);
+int ordenar(const void *, const void *);
 #endif

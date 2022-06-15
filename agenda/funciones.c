@@ -64,22 +64,18 @@ void modificarDatos(contacto *agenda, unsigned int longitud, unsigned int tope, 
     }
 }
 
-int ordenarAZ(const void *str1, const void *str2){
-    int comparacion;
+int ordenar(const void *str1, const void *str2){
+    int comparacion, option=0;
     contacto *p1=(contacto *)str1;
     contacto *p2=(contacto *)str2;
     char *nombre1=(char *)p1->nombre;
     char *nombre2=(char *)p2->nombre;
-    comparacion=strcmp(nombre1, nombre2);
-    return comparacion;
-}
-
-int ordenarZA(const void *str1, const void *str2){
-    int comparacion;
-    contacto *p1=(contacto *)str1;
-    contacto *p2=(contacto *)str2;
-    char *nombre1=(char *)p1->nombre;
-    char *nombre2=(char *)p2->nombre;
-    comparacion=strcmp(nombre2, nombre1);
+    printf("Elija orden: \n1.A-Z 2. Z-A\n");
+    scanf("%i", &option);
+    switch(option){
+        case 1 : comparacion=strcmp(nombre1, nombre2); break;
+        case 2 : comparacion=strcmp(nombre2, nombre1); break;
+        default : printf("Imposible comparar");
+    }
     return comparacion;
 }
