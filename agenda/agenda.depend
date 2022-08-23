@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1661265793 source:c:\users\lucas\onedrive\escritorio\proyectos c\agenda\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	"prototipos.h"
+
+1654180560 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\funciones.h
+
+1661267100 source:c:\users\lucas\onedrive\escritorio\proyectos c\agenda\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"prototipos.h"
+
+1661265219 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\prototipos.h
+
+1654624981 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructuras.h"
+
+1654624981 c:\users\lucas\onedrive\escritorio\proyectos c\agenda\estructuras.h
+
+1655315886 source:d:\malinarich sliba lucas\agenda-main\agenda\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	"prototipos.h"
+
+1655315667 d:\malinarich sliba lucas\agenda-main\agenda\prototipos.h
+
+1655316093 source:d:\malinarich sliba lucas\agenda-main\agenda\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"prototipos.h"
+
