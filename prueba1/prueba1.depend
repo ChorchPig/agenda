@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1667933396 source:c:\users\lucas\onedrive\escritorio\proyecto c++\prueba1\main.cpp
+	<iostream>
+
+1674936576 source:c:\users\lucas\onedrive\escritorio\proyectos c++\prueba1\funciones.cpp
+	<iostream>
+	"prototipos.h"
+
+1676916825 c:\users\lucas\onedrive\escritorio\proyectos c++\prueba1\prototipos.h
+
+1670420682 source:c:\users\lucas\onedrive\escritorio\proyectos c++\prueba1\main.cpp
+	<iostream>
+	"prototipos.h"
+
